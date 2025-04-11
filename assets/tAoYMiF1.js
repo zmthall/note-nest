@@ -1,0 +1,1 @@
+import{Z as i,k as c,$ as d,a0 as f,y as r}from"./DkI0AXVV.js";const l=i(async e=>{let a,u;const t=c();if([a,u]=d(()=>new Promise(s=>{if(t.authResolved)return s();const o=f(()=>t.authResolved,n=>{n&&(o(),s())})})),await a,u(),!t.user&&e.meta.layout==="authenticated")return r("/login");if(t.user&&e.meta.layout==="default")return r("/")});export{l as default};

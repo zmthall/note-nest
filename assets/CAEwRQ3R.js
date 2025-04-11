@@ -1,0 +1,1 @@
+import{_ as t,c,o as s,a8 as o}from"./DkI0AXVV.js";const a={},n={class:"h-dvh bg-zinc-800 text-white"};function r(e,_){return s(),c("div",n,[o(e.$slots,"default")])}const i=t(a,[["render",r]]);export{i as default};
