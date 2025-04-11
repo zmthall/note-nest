@@ -1,6 +1,6 @@
 <template>
   <ClientOnly>
-    <main class="flex h-screen">
+    <main class="flex h-svh">
       <!-- Left side -->
       <div
         class="flex flex-col justify-center items-center grow-0 shrink-0 sm:p-8 p-4 w-[400px] bg-zinc-800 text-white max-md:w-full"

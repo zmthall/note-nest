@@ -2,17 +2,18 @@
   <ClientOnly>
     <div>
       <div v-if="authStore.authResolved">
-        <main class="flex h-screen overflow-x-hidden">
+        <main class="flex h-dvh overflow-hidden">
           <!-- Left side -->
           <div
+            @click="closeNotes"
             :class="[
-              { 'fixed w-full h-screen backdrop-blur-sm z-[1]': isOpen },
+              { 'fixed w-full h-dvh backdrop-blur-sm z-[1]': isOpen },
               'sm:hidden',
             ]"
           ></div>
           <div
             :class="[
-              'grow-0 shrink-0 p-8 w-[320px] bg-zinc-900 text-white overflow-y-auto max-sm:absolute max-sm:top-0 max-smleft-0 max-sm:z-[2] max-sm:h-screen transition-transform duration-500 ease-in-out',
+              'grow-0 shrink-0 p-8 w-[320px] bg-zinc-900 text-white overflow-y-auto max-sm:absolute max-sm:top-0 max-smleft-0 max-sm:z-[2] max-sm:h-dvh transition-transform duration-500 ease-in-out',
               {
                 'max-sm:translate-x-[-100%]': !isOpen,
                 'max-sm:translate-x-0': isOpen,
@@ -184,7 +185,7 @@
           <!-- /Right Side -->
         </main>
       </div>
-      <div v-else class="h-screen flex items-center justify-center text-white">
+      <div v-else class="h-dvh flex items-center justify-center text-white">
         Loading...
       </div>
     </div>
