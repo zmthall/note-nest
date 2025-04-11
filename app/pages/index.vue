@@ -5,9 +5,27 @@
         <main class="flex h-screen overflow-x-hidden">
           <!-- Left side -->
           <div
-            class="grow-0 shrink-0 p-8 w-[320px] bg-zinc-900 text-white overflow-y-auto"
+            :class="[
+              { 'fixed w-full h-screen backdrop-blur-sm z-[1]': isOpen },
+              'sm:hidden',
+            ]"
+          ></div>
+          <div
+            :class="[
+              'grow-0 shrink-0 p-8 w-[320px] bg-zinc-900 text-white overflow-y-auto max-sm:absolute max-sm:top-0 max-smleft-0 max-sm:z-[2] max-sm:h-screen transition-transform duration-500 ease-in-out',
+              {
+                'max-sm:translate-x-[-100%]': !isOpen,
+                'max-sm:translate-x-0': isOpen,
+              },
+            ]"
           >
             <LogoIcon class="mb-16" />
+            <button @click="closeNotes">
+              <Icon
+                name="material-symbols:close-rounded"
+                class="size-8 absolute top-4 right-4 hover:text-white text-gray-300"
+              />
+            </button>
             <div>
               <h2 class="mb-4">Today</h2>
               <ul v-if="hasTodayNotes" class="mb-8">
@@ -118,9 +136,19 @@
               </button>
             </div>
 
+            <button
+              class="absolute left-0 top-1/2 -translate-y-1/2 py-8 bg-zinc-700 cursor-pointer rounded-r-lg hover:bg-zinc-600 sm:hidden"
+              @click="openNotes"
+            >
+              <Icon
+                name="material-symbols:chevron-right-rounded"
+                class="size-6"
+              />
+            </button>
+
             <div
               v-if="hasNotes"
-              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50%]"
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] sm:w-[50%]"
             >
               <form class="flex flex-col gap-2 @submit.prevent">
                 <input
@@ -175,6 +203,8 @@ import type { Note } from "../../types/models.js";
 const { $firebase } = useNuxtApp();
 const authStore = useAuthStore();
 const noteStore = useNoteStore();
+
+const isOpen = ref<boolean>(false);
 
 definePageMeta({
   layout: "authenticated",
@@ -248,6 +278,14 @@ const removeNote = async () => {
       created: new Date().toISOString(),
       lastEdited: null,
     };
+};
+
+const openNotes = () => {
+  isOpen.value = true;
+};
+
+const closeNotes = () => {
+  isOpen.value = false;
 };
 
 const editNote = async () => {
