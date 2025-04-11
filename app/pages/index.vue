@@ -214,7 +214,7 @@ const addNote = async () => {
 
   const noteRef = dateabaseRef(
     $firebase.db,
-    `notes/${authStore.user.uid}/${noteId}`
+    `notes/${authStore.user.uid}/${noteId}`,
   );
 
   localNote.value = newNote;
@@ -229,7 +229,7 @@ const removeNote = async () => {
 
   const noteRef = dateabaseRef(
     $firebase.db,
-    `notes/${authStore.user.uid}/${localNote.value.id}`
+    `notes/${authStore.user.uid}/${localNote.value.id}`,
   );
 
   if (newestNote.value) setLocalNote(newestNote.value);
@@ -260,7 +260,7 @@ const editNote = async () => {
 
   const editedNoteRef = dateabaseRef(
     $firebase.db,
-    `notes/${authStore.user.uid}/${editedNote.id}`
+    `notes/${authStore.user.uid}/${editedNote.id}`,
   );
 
   await set(editedNoteRef, editedNote);
@@ -300,7 +300,7 @@ const todayNotes = computed(() => {
     })
     .sort(
       (a: Note, b: Note) =>
-        new Date(b.created).getTime() - new Date(a.created).getTime()
+        new Date(b.created).getTime() - new Date(a.created).getTime(),
     );
 });
 
@@ -343,7 +343,7 @@ const newestNote = computed(() => {
   if (!notes.length) return null;
 
   return [...notes].sort(
-    (a, b) => new Date(b.created).getTime() - new Date(a.created).getTime()
+    (a, b) => new Date(b.created).getTime() - new Date(a.created).getTime(),
   )[0];
 });
 

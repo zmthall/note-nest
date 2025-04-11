@@ -22,6 +22,6 @@ export default defineNuxtConfig({
   future: { compatibilityVersion: 4 },
   app: {
     baseURL: "/note-nest/",
-    buildAssetsDir: "assets",
+    buildAssetsDir: "dist",
   },
 });
