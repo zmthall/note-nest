@@ -1,1 +1,0 @@
-import{a1 as u,r as f}from"./CFJHarlv.js";const v=u("myNoteStore",()=>{const t=f({});function a(e,o){t.value[e]=o}function r(e,o){t.value[e]||(t.value[e]=[]),t.value[e].push(o)}function n(e,o){t.value[e]&&(t.value[e]=t.value[e].filter(s=>s.id!==o))}return{notes:t,setNotes:a,addNote:r,removeNote:n}});export{v as u};

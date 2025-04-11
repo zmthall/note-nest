@@ -1,1 +1,0 @@
-import{_ as t,c,o as s,a7 as n}from"./CFJHarlv.js";const o={},a={class:"min-h-screen bg-zinc-800 text-white"};function r(e,_){return s(),c("div",a,[n(e.$slots,"default")])}const d=t(o,[["render",r]]);export{d as default};
